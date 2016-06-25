@@ -1,0 +1,37 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Naam</th>
+        <th>Release datum</th>
+        <th>Rating</th>
+        <th>Genre</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+
+    <?php
+    require_once '../app/todo-manager.php';
+    $movieItems = getAllItems($db);
+    foreach($movieItems as $item) {
+        echo "<tr>";
+        echo"<td>". $item['name'] ."</td>";
+        echo"<td>". $item['year_release'] ."</td>";
+        echo"<td>". $item['rating'] ."</td>";
+        echo"<td>". $item['genre'] ."</td>";
+        echo"<td>";
+        echo'<a class="btn btn-info glyphicon glyphicon-pencil" href="../app/edit.php?id='. $item['id'] .'"></a>';
+        echo"</td>";
+        echo"<td>";
+        echo'<form action="../app/todo.php" method="post">';
+        echo '<input type="hidden"  name="id" value="'. $item['id'] .'">';
+        echo '<input type="submit" name="delete" class="btn btn-danger" value="x">';
+        echo '</form>';
+        echo"</td>";
+        echo"</tr>";
+    }
+
+    ?>
+    </tbody>
+</table>

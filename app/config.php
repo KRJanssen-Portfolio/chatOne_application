@@ -7,7 +7,7 @@
  */
 
 //1. constante aanmaken
-define('DBNAME', 'movie_app');
+define('DBNAME', 'chat_app');
 define('DBUSER', 'root');
 define('DBHOST',  'localhost');
 define('DBPASS', '');
